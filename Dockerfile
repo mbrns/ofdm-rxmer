@@ -46,7 +46,7 @@ ADD . /app
 WORKDIR /app
 
 # Need description
-COPY --from=build /app/rxmer /app/rxmer
+COPY --from=build /app/rxmer /bin/rxmer
 
 # Run rxMER application
-RUN /app/rxmer
+# RUN /app/rxmer

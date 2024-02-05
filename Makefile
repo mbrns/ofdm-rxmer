@@ -9,7 +9,7 @@ build:
 	GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -o releases/${BINARY_NAME}${VERSION}-windows-amd64.exe
 
 docker:
-    docker build -t $BINARY_NAME:latest .
+	docker build --tag ${BINARY_NAME} .
 
 clean:
 	rm releases/*
