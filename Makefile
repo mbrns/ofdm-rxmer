@@ -1,12 +1,15 @@
 all: build
 
-BINARY_NAME=rxmer
+BINARY_NAME=ofdm-rxmer
 VERSION = 0.1
 
 build:
 	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o releases/${BINARY_NAME}${VERSION}-linux-amd64
 	GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -o releases/${BINARY_NAME}${VERSION}-darwin-amd64
 	GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -o releases/${BINARY_NAME}${VERSION}-windows-amd64.exe
+
+build-docker:
+    docker build -t $BINARY_NAME:latest .
 
 clean:
 	rm releases/*

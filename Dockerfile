@@ -48,9 +48,5 @@ WORKDIR /app
 # Need description
 COPY --from=build /app/rxmer /app/rxmer
 
-# Our start command which kicks off
-# our newly created binary executable
-ENTRYPOINT ["/app/rxmer", "-bind", ":8080"]
-
-# Document that the service listens on port 8080.
-EXPOSE 8080
+# Run rxMER application
+RUN /app/rxmer
