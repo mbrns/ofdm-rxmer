@@ -8,7 +8,7 @@ build:
 	GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -o releases/${BINARY_NAME}${VERSION}-darwin-amd64
 	GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -o releases/${BINARY_NAME}${VERSION}-windows-amd64.exe
 
-build-docker:
+docker:
     docker build -t $BINARY_NAME:latest .
 
 clean:
