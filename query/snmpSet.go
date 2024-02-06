@@ -88,7 +88,7 @@ func printValue(pdu gosnmp.SnmpPDU) error {
 	return nil
 }
 
-func SendSet(cmIp string, writeCommunity string, tftpSrv string) string {
+func SendSet(cmIp string, writeCommunity string, tftpSrv string, tftpPath string) string {
 	gosnmp.Default.Target = cmIp
 	gosnmp.Default.Community = writeCommunity
 	err := gosnmp.Default.Connect()
@@ -119,7 +119,7 @@ func SendSet(cmIp string, writeCommunity string, tftpSrv string) string {
 	docsPnmBulkDestPath := gosnmp.SnmpPDU{
 		Name:  docsPnmBulkDestPathOID,
 		Type:  gosnmp.OctetString,
-		Value: "/rxmer/",
+		Value: tftpPath,
 	}
 	pdus = append(pdus, docsPnmBulkDestPath)
 
@@ -171,7 +171,7 @@ func SendSet(cmIp string, writeCommunity string, tftpSrv string) string {
 		log.Panicln(err)
 	}
 
-	return "rxmer/" + macAddr + ".PNMDsMer"
+	return tftpPath + macAddr + ".PNMDsMer"
 }
 
 func tftpServerIpAddressFix(ip string) []byte {

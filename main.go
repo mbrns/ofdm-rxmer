@@ -28,9 +28,12 @@ func main() {
 	outputType := flag.String("out", "json",
 		"Specify output type for decoded DS PNM RxMER. Valid options are json, json-pretty, http-table, or http-chart")
 
+	// Select output
+	tftpPath := flag.String("path", "/", "Set remote file path for TFTP server.")
+
 	flag.Parse()
 
-	if len(os.Args) < 5 {
+	if len(os.Args) < 6 {
 		flag.Usage()
 		os.Exit(1)
 	}
@@ -44,7 +47,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	fname := query.SendSet(*cmIpAddr, *snmpWriteString, *tftpIpAddr)
+	fname := query.SendSet(*cmIpAddr, *snmpWriteString, *tftpIpAddr, *tftpPath)
 
 	log.Println("Sleeping for 3 seconds to allow the TFTP transfer to complete")
 	time.Sleep(3 * time.Second)
