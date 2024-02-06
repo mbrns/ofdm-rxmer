@@ -1,6 +1,7 @@
 # ofdm-rxmer
 
 [![Docker Image CI](https://github.com/mbrns/ofdm-rxmer/actions/workflows/docker-image.yml/badge.svg)](https://github.com/mbrns/ofdm-rxmer/actions/workflows/docker-image.yml)
+[![Go](https://github.com/mbrns/ofdm-rxmer/actions/workflows/go.yml/badge.svg)](https://github.com/mbrns/ofdm-rxmer/actions/workflows/go.yml)
 
 ---
 
