@@ -1,7 +1,7 @@
 all: build
 
 BINARY_NAME=ofdm-rxmer
-VERSION = 0.1
+VERSION = 0.2
 
 build:
 	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o releases/${BINARY_NAME}${VERSION}-linux-amd64
